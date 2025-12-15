@@ -1,0 +1,272 @@
+:root {
+  --bg: #0b1021;
+  --panel: #131a32;
+  --text: #e8edff;
+  --muted: #9fb3ff;
+  --accent: #7c5dfa;
+  --accent-strong: #5a3cd1;
+  --border: rgba(255, 255, 255, 0.08);
+  --danger: #f87171;
+  --success: #34d399;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  padding: 24px;
+  max-width: 960px;
+}
+
+.hero {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 12px;
+  margin: 0 0 6px;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 32px;
+}
+
+.lede {
+  margin: 0;
+  color: var(--muted);
+}
+
+.summary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: #fff;
+  padding: 16px 18px;
+  border-radius: 12px;
+  min-width: 220px;
+  text-align: right;
+  box-shadow: 0 10px 30px rgba(124, 93, 250, 0.25);
+}
+
+.summary-label {
+  margin: 0;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.summary-value {
+  margin: 4px 0;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.summary-sub {
+  margin: 0;
+  opacity: 0.9;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-label {
+  font-weight: 600;
+}
+
+.form-row {
+  display: flex;
+  gap: 12px;
+}
+
+.input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #0f1530;
+  color: var(--text);
+  font-size: 15px;
+}
+
+.btn {
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: #1d2543;
+  color: var(--text);
+  padding: 10px 14px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn.primary:hover {
+  background: var(--accent-strong);
+}
+
+.btn.ghost {
+  background: transparent;
+  border-color: var(--border);
+}
+
+.btn.icon {
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.task {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  background: #0f1530;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.task-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.task-title {
+  margin: 0;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.task-meta {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.task-time {
+  margin: 0;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.task-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.entries {
+  display: grid;
+  gap: 4px;
+}
+
+.entry-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.entry-row strong {
+  color: var(--text);
+}
+
+.empty {
+  text-align: center;
+  padding: 28px;
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  color: var(--muted);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+@media (max-width: 720px) {
+  body {
+    padding: 16px;
+  }
+
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .form-row,
+  .task-main,
+  .task-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn.icon {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .task-actions {
+    gap: 6px;
+  }
+}

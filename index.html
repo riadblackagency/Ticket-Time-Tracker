@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ticket Time Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Zeit erfassen leicht gemacht</p>
+        <h1>Ticket Time Tracker</h1>
+        <p class="lede">
+          Erstelle Aufgaben, starte einen Timer und behalte deine Arbeitszeit im Blick.
+          Alle Daten bleiben lokal in deinem Browser.
+        </p>
+      </div>
+      <div class="summary">
+        <p class="summary-label">Gesamtzeit</p>
+        <p class="summary-value" id="summary-total">00:00:00</p>
+        <p class="summary-sub" id="summary-running">0 aktive Timer</p>
+      </div>
+    </header>
+
+    <main>
+      <section class="panel">
+        <form id="task-form" class="task-form">
+          <label class="form-label" for="task-name">Neue Aufgabe</label>
+          <div class="form-row">
+            <input
+              id="task-name"
+              name="task"
+              class="input"
+              type="text"
+              placeholder="z. B. Support-Ticket #123"
+              autocomplete="off"
+              required
+              maxlength="80"
+            />
+            <button class="btn primary" type="submit">Aufgabe hinzufügen</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel" aria-live="polite">
+        <div class="panel-header">
+          <h2>Aufgaben</h2>
+          <button id="clear-all" class="btn ghost" type="button">Alle löschen</button>
+        </div>
+        <div id="empty-state" class="empty">
+          <p>Du hast noch keine Aufgaben angelegt.</p>
+          <p class="muted">Füge eine Aufgabe hinzu, um mit dem Tracking zu beginnen.</p>
+        </div>
+        <div id="task-list" class="task-list"></div>
+      </section>
+    </main>
+
+    <template id="task-template">
+      <article class="task" data-task-id="">
+        <div class="task-main">
+          <div>
+            <p class="task-title"></p>
+            <p class="task-meta"></p>
+          </div>
+          <p class="task-time" data-task-time></p>
+        </div>
+        <div class="task-actions">
+          <button class="btn icon" data-action="toggle" aria-label="Timer starten oder pausieren">
+            ▶
+          </button>
+          <button class="btn ghost" data-action="reset">Reset</button>
+          <button class="btn ghost" data-action="delete">Löschen</button>
+        </div>
+        <div class="entries" data-entries></div>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
